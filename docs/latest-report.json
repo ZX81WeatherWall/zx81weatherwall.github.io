@@ -1,0 +1,48 @@
+{
+  "text": "ZX81 WEATHER WALL 16 SEP 00:07Z: HIGH 30C DILI; LOW 8C MOSCOW. TROPICS QUIET. SEAS ROUGH NEAR S PACIFIC. 100 ZX81S ON WATCH.",
+  "at": "2026-09-16T00:07:55.729Z",
+  "timeStr": "16 SEP 00:07Z",
+  "graphemes": 124,
+  "limit": 300,
+  "pages": 1,
+  "posted": true,
+  "wouldPost": true,
+  "armed": true,
+  "status": "POST",
+  "reason": "routine 6h +6/6 desk replies",
+  "gateUnbacked": {
+    "ok": true,
+    "reason": "",
+    "detail": "pass (5 claims backed)"
+  },
+  "gateGuard": {
+    "ok": true,
+    "action": "post",
+    "reason": "",
+    "detail": "5 claim(s) backed",
+    "hadFault": false,
+    "dropped": []
+  },
+  "emptyStreak": 0,
+  "gateEmpty": {
+    "ok": true,
+    "reason": "",
+    "detail": "124 chars"
+  },
+  "gateSoak": {
+    "ok": true,
+    "reason": "",
+    "detail": "latest PASS 181m old",
+    "evaluatedArmed": true
+  },
+  "image": {
+    "alt": "A 10x10 wall of 100 ZX81 screens rendering a live world weather map in 1-bit block graphics. No cyclones active. Precipitation signals present: rain areas and snow or wintry areas. Hottest 30C at INDONESIA, coldest 8C at W RUSSIA. Roughest seas at S PACIFIC.",
+    "blobBytes": 70993,
+    "width": 2560,
+    "height": 1920
+  },
+  "cyclonesMajor": 0,
+  "newMajor": 0,
+  "frames": 3,
+  "retransmits": 0
+}
