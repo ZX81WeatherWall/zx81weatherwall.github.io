@@ -1,0 +1,17 @@
+{
+  "available": true,
+  "window": 12,
+  "frameCount": 12,
+  "span": {
+    "from": "2026-09-19T07:00:00.000Z",
+    "to": "2026-09-19T18:01:25.993Z"
+  },
+  "endsAtNewest": true,
+  "mp4": "loop-12h.mp4",
+  "bytes": 116591,
+  "width": 2560,
+  "height": 1920,
+  "fps": 3,
+  "scaleDiv": 1,
+  "generatedAt": "2026-09-19T18:11:07.715Z"
+}

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" shape-rendering="crispEdges">
+  <!-- ZX81 weather-report mark: 1-bit blocky cloud (paper-white, chequer-dithered
+       underside, like the wall's grey ramp) with green phosphor rain on black. -->
+  <rect width="16" height="16" fill="#0b0b0d"/>
+  <g fill="#f6f6ee">
+    <rect x="4" y="2" width="5" height="2"/>
+    <rect x="9" y="3" width="4" height="1"/>
+    <rect x="2" y="4" width="12" height="3"/>
+    <rect x="2" y="7" width="1" height="1"/><rect x="4" y="7" width="1" height="1"/>
+    <rect x="6" y="7" width="1" height="1"/><rect x="8" y="7" width="1" height="1"/>
+    <rect x="10" y="7" width="1" height="1"/><rect x="12" y="7" width="1" height="1"/>
+  </g>
+  <g fill="#39ff7a">
+    <rect x="4" y="9" width="1" height="2"/><rect x="3" y="12" width="1" height="2"/>
+    <rect x="8" y="9" width="1" height="2"/><rect x="7" y="12" width="1" height="2"/>
+    <rect x="12" y="9" width="1" height="2"/><rect x="11" y="12" width="1" height="2"/>
+  </g>
+</svg>

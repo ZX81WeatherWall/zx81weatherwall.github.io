@@ -1,0 +1,48 @@
+{
+  "text": "ZX81 WEATHER WALL 19 SEP 18:10Z. ALERT: FLASH FLOOD WARNING IN NEW YORK, SAN FRANCISC; HURRICANE SIGNATURE DUJUAN 980MB S CHINA; 2 MAJOR FIRES TATLANIKA, NIEBLA; HOT NIGHT 25C MUMBAI; TROPICAL NIGHT 24C TEHRAN, 24C ABIDJAN, 24C SANTO DOMING, 22C CAIRO, 22C BEIJING +2 MORE. 100 ZX81S ON WATCH.",
+  "at": "2026-09-19T18:10:48.629Z",
+  "timeStr": "19 SEP 18:10Z",
+  "graphemes": 293,
+  "limit": 300,
+  "pages": 1,
+  "posted": false,
+  "wouldPost": false,
+  "armed": true,
+  "status": "HOLD",
+  "reason": "held (off global 12h slot; UTC hour 18)",
+  "gateUnbacked": {
+    "ok": true,
+    "reason": "",
+    "detail": "pass (6 claims backed)"
+  },
+  "gateGuard": {
+    "ok": true,
+    "action": "post",
+    "reason": "",
+    "detail": "6 claim(s) backed",
+    "hadFault": false,
+    "dropped": []
+  },
+  "emptyStreak": 0,
+  "gateEmpty": {
+    "ok": true,
+    "reason": "",
+    "detail": "293 chars"
+  },
+  "gateSoak": {
+    "ok": true,
+    "reason": "",
+    "detail": "not an armed post attempt",
+    "evaluatedArmed": false
+  },
+  "image": {
+    "alt": "A 10x10 wall of 100 ZX81 screens rendering a live world weather map in 1-bit block graphics. Alerts: flash flood warning N USA, NW USA; DUJUAN 980MB S CHINA; sweltering night N INDIA 25C; 2 major fires: TATLANIKA, NIEBLA; 1 flood; hot night N ATLANTIC 24C, ARABIA 24C, TROP ATL 24C, E ASIA 22C, N AFRICA 22C, S CHINA 21C, CARIBBEAN 20C; drought emergency EUROPE, W AFRICA (GDACS). Hottest 30C at SANTO DOMING, coldest 11C at REYKJAVIK. Precipitation: rain areas and snow or wintry areas. Roughest seas at N PACIFIC. 6 further wildfires burning.",
+    "blobBytes": 76672,
+    "width": 2560,
+    "height": 1920
+  },
+  "cyclonesMajor": 0,
+  "newMajor": 0,
+  "frames": 5,
+  "retransmits": 0
+}
