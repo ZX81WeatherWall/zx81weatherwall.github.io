@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ZX81 WEATHER WALL</title>
+<link rel="icon" type="image/svg+xml" href="/web/favicon.svg" />
+<style>
+  :root { --bezel:#0b0b0d; --wall:#141417; --accent:#39ff7a; --amber:#ffb638; --dim:#7a7a86; }
+  * { box-sizing: border-box; }
+  html, body { margin:0; height:100%; background:var(--wall); color:#e8e8ee;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  header { display:flex; align-items:baseline; gap:1.2rem; flex-wrap:wrap;
+    padding:.55rem 1rem; background:linear-gradient(#1c1c22,#111114);
+    border-bottom:1px solid #000; }
+  header h1 { font-size:1.05rem; margin:0; letter-spacing:.18em; color:var(--accent); }
+  header h1 small { color:var(--dim); letter-spacing:.05em; font-weight:400; }
+  #status { display:flex; gap:1.1rem; font-size:.72rem; color:var(--dim); flex-wrap:wrap; }
+  #status b { color:#e8e8ee; font-weight:600; }
+  #status .ok { color:var(--accent); } #status .fail { color:#ff5a5a; }
+  #wall { display:grid; grid-template-columns:repeat(10,1fr); gap:0;
+    padding:0; background:#f6f6ee; }
+  .screen { position:relative; background:transparent; border:0;
+    border-radius:0; padding:0; box-shadow:none;
+    aspect-ratio:4/3; }
+  .screen canvas { width:100%; height:100%; display:block; image-rendering:pixelated;
+    background:#f6f6ee; border-radius:0; }
+  footer { display:flex; align-items:center; gap:1.4rem; flex-wrap:wrap;
+    padding:.5rem 1rem; font-size:.72rem; color:var(--dim);
+    background:#111114; border-top:1px solid #000; }
+  .legend { display:flex; align-items:center; gap:.5rem; }
+  .legend .swatch { width:34px; height:22px; border:1px solid #000; image-rendering:pixelated; background:#f6f6ee; }
+  .legend .gswatch, .legend .wswatch, .legend .pictswatch { width:26px; height:20px; border:1px solid #000; image-rendering:pixelated; background:#f6f6ee; }
+  .legend .lab { color:#cfcfd6; text-transform:uppercase; display:inline-block; letter-spacing:.02em; }
+  /* Drop-cap lead letter: full-word legend labels, all caps, larger first letter. */
+  .legend .lab::first-letter { font-size:1.35em; font-weight:700; color:#e8e8ee; }
+  footer .grp { display:flex; align-items:center; gap:.55rem; }
+  .note { color:var(--dim); }
+  a { color:var(--amber); }
+  #btn-seam { font:inherit; font-size:.72rem; letter-spacing:.12em;
+    color:var(--accent); background:#1c1c22; border:1px solid var(--accent);
+    border-radius:4px; padding:.25rem .7rem; cursor:pointer; margin-left:.6rem; }
+  #btn-seam:hover { background:var(--accent); color:#0b0b0d; }
+  /* teletext page tabs */
+  #tabs { display:flex; gap:.25rem; }
+  #tabs .tab { font:inherit; font-size:.74rem; letter-spacing:.14em; color:var(--dim);
+    background:#1c1c22; border:1px solid #2c2c34; border-radius:5px 5px 0 0;
+    padding:.32rem .8rem; cursor:pointer; }
+  #tabs .tab:hover { color:var(--accent); border-color:var(--accent); }
+  #tabs .tab.active { color:#0b0b0d; background:var(--accent); border-color:var(--accent); font-weight:700; }
+  #tabs .tab.showing { color:var(--accent); border-color:var(--accent); }
+  #tabs .tab[data-page="auto"].active { color:#0b0b0d; background:var(--amber); border-color:var(--amber); }
+  /* phenomena-track / contour tape-loop controls (FS7-T9) */
+  #tracks { display:flex; gap:.25rem; align-items:center; }
+  #tracks .trk { font:inherit; font-size:.68rem; letter-spacing:.1em; color:var(--dim);
+    background:#1c1c22; border:1px solid #2c2c34; border-radius:4px;
+    padding:.28rem .55rem; cursor:pointer; }
+  #tracks .trk:hover { color:var(--amber); border-color:var(--amber); }
+  #tracks .trk.active { color:#0b0b0d; background:var(--amber); border-color:var(--amber); font-weight:700; }
+  /* bold, from-across-the-room page banner */
+  #page-banner { margin-left:auto; font-size:1.5rem; font-weight:800; letter-spacing:.3em;
+    color:var(--amber); text-shadow:0 0 10px rgba(255,182,56,.45); white-space:nowrap; }
+  body.seamless #wall { gap:0; padding:0; }
+  body.seamless .screen { border:none; border-radius:0; padding:0;
+    box-shadow:none; background:none; }
+  body.seamless .screen canvas { border-radius:0; }
+  /* thunderstorm glyphs blink ON-MACHINE (T14): the ZX81 toggles the bolt glyph's
+     cells between inverse and plain on the render phase, so only the bolt flashes —
+     the old whole-tile CSS `filter:invert(1)` (which flashed the entire tile) is gone */
+  /* cyclone tiles carry no host-side highlight: the on-machine rotating spiral
+     is the indicator (a pulsing amber bezel was removed as un-ZX81 — owner) */
+  /* REPORTER ticker — the 101st ZX81's on-machine bulletin, composed on the
+     machine and delivered over its cassette port, shown as a wire-service crawl */
+  #ticker { display:flex; align-items:center; gap:.7rem; padding:.4rem 1rem;
+    background:#0b0b0d; border-bottom:1px solid #000; font-size:.8rem;
+    color:var(--accent); overflow:hidden; white-space:nowrap; }
+  #ticker .tag { flex:none; color:#0b0b0d; background:var(--accent); font-weight:700;
+    letter-spacing:.12em; padding:.12rem .5rem; border-radius:3px; }
+  #ticker.armed .tag { background:var(--amber); }
+  #ticker .crawl { flex:1; overflow:hidden; }
+  #ticker .crawl b { display:inline-block; padding-left:100%;
+    animation: zwx-crawl 36s linear infinite; letter-spacing:.06em; }
+  #ticker:hover .crawl b { animation-play-state: paused; }
+  @keyframes zwx-crawl { from{ transform:translateX(0); } to{ transform:translateX(-100%); } }
+  #ticker .meta { flex:none; color:var(--dim); font-size:.72rem; }
+  #ticker .meta b { color:#e8e8ee; }
+  /* LOOPS row — the 12/24/48h weather loops rendered server-side from the history
+     archive (one live hourly frame each), replayed as short mp4s. 0 API calls;
+     each window appears only once >= its full frame count is collected. */
+  #loops { display:flex; align-items:center; gap:1rem; flex-wrap:wrap;
+    padding:.4rem 1rem; background:#101014; border-bottom:1px solid #000; font-size:.72rem; }
+  #loops .lbl { color:var(--amber); letter-spacing:.16em; font-weight:700; flex:none; }
+  #loops .loop { display:flex; align-items:center; gap:.5rem; }
+  #loops .loop .cap { color:var(--dim); }
+  #loops .loop .cap b { color:#e8e8ee; }
+  #loops .loop.collecting .cap { color:var(--dim); }
+  #loops video { width:172px; height:auto; border:1px solid #2c2c34; background:#f6f6ee;
+    image-rendering:pixelated; border-radius:3px; display:block; }
+  #loops a { color:var(--accent); }
+</style>
+</head>
+<body>
+  <header>
+    <h1>ZX81 WEATHER WALL <small>· 100 emulated Sinclair ZX81s · one live world map</small></h1>
+    <div id="status">
+      <span>fleet <b id="s-fps">–</b></span>
+      <span>painted <b id="s-painted">0/100</b></span>
+      <span>refresh in <b id="s-count">–</b></span>
+      <span>last <b id="s-last">–</b></span>
+      <span>API <b id="s-api" class="ok">–</b></span>
+      <span>marine <b id="s-marine">–</b></span>
+      <span>cyclones <b id="s-cyc">–</b></span>
+      <span>workers <b id="s-workers">–</b></span>
+      <span>front page <b id="s-front">–</b></span>
+      <span>tape <b id="s-tracks">off</b></span>
+    </div>
+    <div id="tabs">
+      <button class="tab" data-page="0">TEMP</button>
+      <button class="tab" data-page="1">WEATHER</button>
+      <button class="tab" data-page="7">FIRE</button>
+      <button class="tab" data-page="2">WIND</button>
+      <button class="tab" data-page="3">SEA</button>
+      <button class="tab" data-page="5">PRESSURE</button>
+      <button class="tab" data-page="6">SATELLITE</button>
+      <button class="tab" data-page="auto" title="Rotate through all seven views (~24 s each)">AUTO</button>
+    </div>
+    <div id="tracks" title="Replay the last N hours as a tape loop: storm tracks (WEATHER) or the drifting contour bands (TEMP/WIND/PRESSURE). Zero extra API calls; machines frozen during replay.">
+      <button class="trk" data-h="0">TRK OFF</button>
+      <button class="trk" data-h="12">12H</button>
+      <button class="trk" data-h="24">24H</button>
+      <button class="trk" data-h="48">48H</button>
+    </div>
+    <div id="page-banner"></div>
+    <button id="btn-seam" title="Join the 100 screens edge-to-edge into one map">SEAMLESS</button>
+  </header>
+
+  <div id="ticker" title="The 101st ZX81 aggregates all 100 tiles on-machine, composes this bulletin in its own RAM, and sends it out its cassette port — reassembled here by the gateway.">
+    <span class="tag">📻 REPORTER</span>
+    <span class="crawl"><b id="ticker-text">…the reporter ZX81 is composing the global bulletin…</b></span>
+    <span class="meta"><b id="ticker-g">–</b>/300 · <b id="ticker-status">–</b></span>
+  </div>
+
+  <div id="loops" title="12/24/48-hour weather loops: each hourly scheduler cycle archives that cycle's live map and re-renders these replays through the SAME machine render path the posts use. Zero extra API calls; a window appears only once its full frame count is collected.">
+    <span class="lbl">LOOPS</span>
+    <span class="loop collecting" data-window="12"><span class="cap">12H …</span></span>
+    <span class="loop collecting" data-window="24"><span class="cap">24H …</span></span>
+    <span class="loop collecting" data-window="48"><span class="cap">48H …</span></span>
+  </div>
+
+  <main>
+    <div id="wall"></div>
+  </main>
+
+  <footer>
+    <div class="grp" data-legend="0"><span class="note">TEMP:</span>
+      <span class="lab">machine-rendered temperature shade/stipple; no scalar edge bezels</span>
+    </div>
+    <div class="grp" data-legend="1"><span class="note">WEATHER:</span>
+      <span class="lab">machine-rendered pictographic rain/snow/thunder/fog/gale/temperature symbols over the world map; tape payload graphics, not browser overlay text</span>
+      <div class="legend"><canvas class="pictswatch" data-weather-icon="RAIN"></canvas><span class="lab">rain</span></div>
+      <div class="legend"><canvas class="pictswatch" data-weather-icon="SNOW"></canvas><span class="lab">snow</span></div>
+      <div class="legend"><canvas class="pictswatch" data-weather-icon="THUNDER"></canvas><span class="lab">thunder</span></div>
+      <div class="legend"><canvas class="pictswatch" data-weather-icon="FOG"></canvas><span class="lab">fog</span></div>
+      <div class="legend"><canvas class="pictswatch" data-weather-icon="GALE"></canvas><span class="lab">gale/sea</span></div>
+      <div class="legend"><canvas class="pictswatch" data-weather-icon="HEAT"></canvas><span class="lab">heat</span></div>
+      <div class="legend"><canvas class="pictswatch" data-weather-icon="COLD"></canvas><span class="lab">cold</span></div>
+      <div class="legend"><canvas class="pictswatch" data-weather-icon="LOW"></canvas><span class="lab">L/H pressure</span></div>
+    </div>
+    <div class="grp" data-legend="2"><span class="note">WIND:</span>
+      <span class="lab">machine-rendered wind arrows over the map; no scalar edge bezels</span>
+    </div>
+    <div class="grp" data-legend="3"><span class="note">SEA:</span>
+      <span class="lab">machine-rendered marine sea-state texture; land retained as the faint map, no host wave contour overlay</span>
+    </div>
+    <div class="grp" data-legend="4"><span class="note">RADAR:</span>
+      <div class="legend"><canvas class="swatch" data-code="3"></canvas><span class="lab">isotherm (temp-band edge)</span></div>
+      <div class="legend"><canvas class="swatch" data-code="1"></canvas><span class="lab">land</span></div>
+      <div class="legend"><span class="lab">precip drifts (radar loop)</span></div>
+    </div>
+    <div class="grp" data-legend="5"><span class="note">PRESSURE:</span>
+      <span class="lab">machine-rendered pressure shading plus H/L marks; no scalar edge bezels</span>
+    </div>
+    <div class="grp" data-legend="6"><span class="note">SATELLITE:</span>
+      <span class="lab">machine-rendered cloud-cover bands plus day/night terminator edge masks; cloud and terminator bytes are drawn inside each emulated ZX81 tile</span>
+    </div>
+    <div class="grp"><span class="note">CYCLONE:</span>
+      <div class="legend"><canvas id="cyc-swatch" width="34" height="22" class="swatch"></canvas><span class="lab">spiral+eye = extreme gusts + low pressure; rotates CCW N / CW S (top 8 animated)</span></div>
+      <div class="legend"><canvas id="band-swatch" width="34" height="22" class="swatch"></canvas><span class="lab">periphery = the storm's cloud/wind spiral, sized in km (a real cyclone is &lt; 1 tile; floor 300 · cap 1100 km)</span></div>
+      <div class="legend"><span class="lab">rotating spiral = TROPICAL cyclone (CCW N / CW S), with its NHC name beside it + min pressure in the eye</span></div>
+      <div class="legend"><span class="lab">bold <b>L</b> = intense EXTRATROPICAL low (storm-/hurricane-force, no tropical spiral)</span></div>
+      <div class="legend"><span class="lab">plain <b>L</b> / <b>H</b> = ordinary pressure centres (sub-cyclone low / high)</span></div>
+    </div>
+    <div class="grp"><span class="note">data <a href="https://open-meteo.com" target="_blank" rel="noopener">Open-Meteo</a> forecast + marine + cloud cover · storms <a href="https://www.nhc.noaa.gov" target="_blank" rel="noopener">NHC</a>/<a href="https://www.metoc.navy.mil/jtwc/jtwc.html" target="_blank" rel="noopener">JTWC</a> · emergencies <a href="https://www.gdacs.org" target="_blank" rel="noopener">GDACS</a> + <a href="https://wildfiresituation.nrs.gov.bc.ca" target="_blank" rel="noopener">BC Wildfire Service</a> · space weather <a href="https://www.swpc.noaa.gov" target="_blank" rel="noopener">NOAA SWPC</a> · page flips cost 0 API calls</span></div>
+  </footer>
+
+  <!-- shared modules (main thread needs layout + coastline + weather; also the
+       char ROM for legend swatches) -->
+  <script src="/src/Z80.js"></script>
+  <script src="/rom/zx81-rom.js"></script>
+  <script src="/src/zx81.js"></script>
+  <script src="/src/layout.js"></script>
+  <script src="/src/contour-plot.js"></script>
+  <script src="/src/corner-grid.js"></script>
+  <script src="/src/continental-grid.js"></script>
+  <script src="/src/pressure-centres.js"></script>
+  <script src="/src/dense-loop.js"></script>
+  <script src="/src/coastline-data.js"></script>
+  <script src="/src/coastline.js"></script>
+  <script src="/src/weather.js"></script>
+  <script src="/src/marine.js"></script>
+  <script src="/src/render.js"></script>
+  <script src="/src/glyphs.js"></script>
+  <script src="/src/bigfont.js"></script>
+  <script src="/src/texture.js"></script>
+  <script src="/src/pressure-well.js"></script>
+  <script src="/src/storm-track.js"></script>
+  <script src="/src/cloud-field.js"></script>
+  <script src="/src/sea-field.js"></script>
+  <script src="/src/windflow.js"></script>
+  <script src="/src/smokeflow.js"></script>
+  <!-- fronts.js / front-render.js no longer load in the browser: fronts render only
+       on the continental desk crops (tools/refresh-report.js), not the global wall -->
+  <script src="/src/terminator.js"></script>
+  <script src="/src/weather-chart.js"></script>
+
+  <script src="/src/contours.js"></script>
+  <script src="/src/tapebus.js"></script>
+  <!-- FS2: detectCyclones' spiral-gate needs REP.tileLat/TROPICS_LAT (report.js ->
+       regions.js) and the NHC naming feed (nhc.js). Without these the main-thread
+       cyclone detection throws on any real storm and the wall silently loses the
+       spiral/name/pressure layer. Load before gateway.js so they're ready. -->
+  <script src="/src/regions.js"></script>
+  <script src="/src/alert-places.js"></script>
+  <script src="/src/report.js"></script>
+  <script src="/src/nhc.js"></script>
+  <script src="/src/jtwc.js"></script>
+  <!-- Governing tab spec (land/hatch/terminator/marks/labels + selectors). Load
+       before gateway.js (mark caps) and app.js (terminator/label wiring). -->
+  <script src="/src/tab-spec.js"></script>
+  <script src="/src/gateway.js"></script>
+  <script src="/web/app.js"></script>
+  <script>
+    (function () {
+      const btn = document.getElementById('btn-seam');
+      function setSeam(on) {
+        document.body.classList.toggle('seamless', on);
+        btn.textContent = on ? 'BEZELS' : 'SEAMLESS';
+        try { localStorage.setItem('zwx-seamless', on ? '1' : '0'); } catch (e) {}
+      }
+      btn.addEventListener('click', () =>
+        setSeam(!document.body.classList.contains('seamless')));
+      let saved = null;
+      try { saved = localStorage.getItem('zwx-seamless'); } catch (e) {}
+      setSeam(saved === '1');
+    })();
+  </script>
+  <script>
+    // LOOPS row: read the server-built loop sidecars (same-origin, 0 API) and show
+    // an inline replay per available window, else an honest "collecting N/W". A
+    // missing sidecar (cold start, before any cycle) degrades to "collecting" — it
+    // never errors the page. Refreshes on the same 30-min beat as the wall.
+    (function () {
+      const WINDOWS = [12, 24, 48];
+      function esc(s) { return String(s == null ? '' : s); }
+      function shortSpan(sc) {
+        try {
+          const a = new Date(sc.span.from), b = new Date(sc.span.to);
+          const f = (d) => d.toISOString().slice(5, 16).replace('T', ' ') + 'Z';
+          return f(a) + '→' + f(b);
+        } catch (e) { return ''; }
+      }
+      async function loadOne(w) {
+        const el = document.querySelector('#loops .loop[data-window="' + w + '"]');
+        if (!el) return;
+        let sc = null;
+        try {
+          const r = await fetch('/docs/loop-' + w + 'h.json?v=' + Date.now(), { cache: 'no-store' });
+          if (r.ok) sc = await r.json();
+        } catch (e) { /* offline / cold start — treat as collecting */ }
+        if (sc && sc.available) {
+          el.classList.remove('collecting');
+          el.innerHTML =
+            '<video muted loop autoplay playsinline preload="metadata" src="/docs/' + esc(sc.mp4) +
+            '?v=' + encodeURIComponent(sc.generatedAt || '') + '"></video>' +
+            '<span class="cap"><b>' + w + 'H</b> · ' + esc(sc.frameCount) + ' frames<br>' +
+            '<a href="/docs/' + esc(sc.mp4) + '" target="_blank" rel="noopener">open</a> · ' + shortSpan(sc) + '</span>';
+        } else {
+          el.classList.add('collecting');
+          const n = sc && typeof sc.collected === 'number' ? sc.collected : '?';
+          el.innerHTML = '<span class="cap"><b>' + w + 'H</b> collecting ' + n + '/' + w + '</span>';
+        }
+      }
+      window.zwxLoadLoops = function () { WINDOWS.forEach(loadOne); };
+      window.zwxLoadLoops();
+      setInterval(window.zwxLoadLoops, 30 * 60 * 1000);
+    })();
+  </script>
+  <script>
+    // Self-update on the same 30-min beat as the data refresh: if a newer build
+    // is being served, reload (tab/seamless choices survive via localStorage).
+    // HEAD requests go to our own server only — zero API cost.
+    (function () {
+      const FILES = ['/web/index.html', '/web/app.js', '/web/worker.js'];
+      const PERIOD = 30 * 60 * 1000;
+      let baseline = null;
+      async function stamp() {
+        const parts = await Promise.all(FILES.map(async (f) => {
+          try {
+            const r = await fetch(f + '?v=' + Date.now(), { method: 'HEAD', cache: 'no-store' });
+            return f + ':' + (r.headers.get('last-modified') || '') + ':' + (r.headers.get('content-length') || '');
+          } catch (e) { return f + ':unreachable'; }
+        }));
+        return parts.join('|');
+      }
+      window.zwxCheckUpdate = async function () {
+        const now = await stamp();
+        if (baseline === null || now.includes('unreachable')) { baseline = now; return false; }
+        if (now !== baseline) { location.reload(); return true; }
+        return false;
+      };
+      window.zwxCheckUpdate();
+      setInterval(window.zwxCheckUpdate, PERIOD);
+    })();
+  </script>
+</body>
+</html>

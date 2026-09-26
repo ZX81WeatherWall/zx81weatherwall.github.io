@@ -1,0 +1,48 @@
+{
+  "text": "ZX81 WEATHER WALL 26 SEP 18:08Z: HIGH 32C BRASILIA; LOW 8C REYKJAVIK. 1 MAJOR HURRICANE SIGNATURE POLO 936MB E PACIFIC. 1 HURRICANE SIGNATURE SURIGAE 1008MB S CHINA. 1 HURRICANE SIGNATURE NOLO 977MB C PACIFIC +1 MORE. SEAS ROUGH NEAR S PACIFIC. 100 ZX81S ON WATCH.",
+  "at": "2026-09-26T18:08:04.926Z",
+  "timeStr": "26 SEP 18:08Z",
+  "graphemes": 264,
+  "limit": 300,
+  "pages": 1,
+  "posted": false,
+  "wouldPost": false,
+  "armed": true,
+  "status": "HOLD",
+  "reason": "held (off global 12h slot; UTC hour 18)",
+  "gateUnbacked": {
+    "ok": true,
+    "reason": "",
+    "detail": "pass (5 claims backed)"
+  },
+  "gateGuard": {
+    "ok": true,
+    "action": "post",
+    "reason": "",
+    "detail": "5 claim(s) backed",
+    "hadFault": false,
+    "dropped": []
+  },
+  "emptyStreak": 0,
+  "gateEmpty": {
+    "ok": true,
+    "reason": "",
+    "detail": "264 chars"
+  },
+  "gateSoak": {
+    "ok": true,
+    "reason": "",
+    "detail": "not an armed post attempt",
+    "evaluatedArmed": false
+  },
+  "image": {
+    "alt": "A 10x10 wall of 100 ZX81 screens rendering a live world weather map in 1-bit block graphics. 4 cyclones marked by rotating spiral markers: E PACIFIC (major), S CHINA, C PACIFIC +1 more. Precipitation signals present: rain areas and snow or wintry areas. Hottest 32C at AMAZON, coldest 8C at N ATLANTIC. Roughest seas at S PACIFIC.",
+    "blobBytes": 70138,
+    "width": 2560,
+    "height": 1920
+  },
+  "cyclonesMajor": 1,
+  "newMajor": 0,
+  "frames": 5,
+  "retransmits": 0
+}
