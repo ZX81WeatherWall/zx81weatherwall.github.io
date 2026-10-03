@@ -1,0 +1,48 @@
+{
+  "text": "ZX81 WEATHER WALL 03 OCT 18:09Z. ALERT: WINTER STORM WARNING IN RUSSIA; EXTREME COLD WARNING IN RUSSIA, UKRAINE; HIGH WIND WARNING IN GREECE; HEAVY RAIN WARNING IN RUSSIA, FRANCE, SPAIN, MADAGASCAR, GREECE; SEVERE THUNDERSTORM WARNING IN SPAIN, ECUADOR, GREECE, PORTUGAL, PARAGUAY; MAJOR HURRICANE SIGNATURE NOLO 959MB C PACIFIC; MAJOR HURRICANE SIGNATURE CHOIWAN 961MB W PACIFIC; MAJOR HURRICANE SIGNATURE RACHEL 973MB E PACIFIC; 1 MAJOR FIRE PORTEL; HOT NIGHT 26C MUMBAI; TROPICAL NIGHT 24C LOS ANGELES, 24C LAGOS, 24C ABIDJAN, 23C SANTO DOMING, 21C CASABLANCA +2 MORE. 100 ZX81S ON WATCH.",
+  "at": "2026-10-03T18:09:24.190Z",
+  "timeStr": "03 OCT 18:09Z",
+  "graphemes": 591,
+  "limit": 300,
+  "pages": 3,
+  "posted": false,
+  "wouldPost": false,
+  "armed": true,
+  "status": "HOLD",
+  "reason": "held (off global 12h slot; UTC hour 18)",
+  "gateUnbacked": {
+    "ok": true,
+    "reason": "",
+    "detail": "pass (10 claims backed)"
+  },
+  "gateGuard": {
+    "ok": true,
+    "action": "post",
+    "reason": "",
+    "detail": "10 claim(s) backed",
+    "hadFault": false,
+    "dropped": []
+  },
+  "emptyStreak": 0,
+  "gateEmpty": {
+    "ok": true,
+    "reason": "",
+    "detail": "591 chars"
+  },
+  "gateSoak": {
+    "ok": true,
+    "reason": "",
+    "detail": "not an armed post attempt",
+    "evaluatedArmed": false
+  },
+  "image": {
+    "alt": "A 10x10 wall of 100 ZX81 screens rendering a live world weather map in 1-bit block graphics. Alerts: winter storm warning RUSSIA; extreme cold warning RUSSIA, UKRAINE; high wind warning GREECE; heavy rain warning RUSSIA, FRANCE, SPAIN, MADAGASCAR, GREECE; severe thunderstorm warning SPAIN, ECUADOR, GREECE, PORTUGAL, PARAGUAY; river flooding lagos, melbourne; NOLO 959MB C PACIFIC, CHOIWAN 961MB W PACIFIC, RACHEL 973MB E PACIFIC; sweltering night N INDIA 26C; 1 major fire: PORTEL; hot night E PACIFIC 24C, TROP ATL 24C, W AFRICA 24C, N ATLANTIC 23C, E ATLANTIC 21C, ARABIA 20C, S INDIA 20C; drought emergency EUROPE, W AFRICA (GDACS). Hottest 37C at LOS ANGELES, coldest 6C at MOSCOW. Precipitation: snow or wintry areas. Roughest seas at N ATLANTIC. 6 further wildfires burning.",
+    "blobBytes": 75450,
+    "width": 2560,
+    "height": 1920
+  },
+  "cyclonesMajor": 3,
+  "newMajor": 0,
+  "frames": 10,
+  "retransmits": 0
+}

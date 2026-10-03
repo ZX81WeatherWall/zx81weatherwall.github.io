@@ -1,0 +1,17 @@
+{
+  "available": true,
+  "window": 48,
+  "frameCount": 48,
+  "span": {
+    "from": "2026-10-01T19:00:00.000Z",
+    "to": "2026-10-03T18:03:08.887Z"
+  },
+  "endsAtNewest": true,
+  "mp4": "loop-48h.mp4",
+  "bytes": 349900,
+  "width": 2560,
+  "height": 1920,
+  "fps": 3,
+  "scaleDiv": 1,
+  "generatedAt": "2026-10-03T18:09:37.146Z"
+}
