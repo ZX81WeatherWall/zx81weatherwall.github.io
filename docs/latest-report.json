@@ -1,0 +1,48 @@
+{
+  "text": "ZX81 WEATHER WALL 10 OCT 21:05Z (DATA 3 HOURS OLD). ALERT: TORNADO WARNING IN SOUTH CAROLINA; FLASH FLOOD WARNING IN GEORGIA, SOUTH CAROLINA; HIGH WIND WARNING IN RUSSIA, GERMANY; HEAVY RAIN WARNING IN GERMANY, ITALY, SAUDI ARABIA, GREECE, BELARUS, MONTENEGRO; SEVERE THUNDERSTORM WARNING IN NIGERIA, ITALY, ECUADOR, GREECE, CROATIA; MAJOR HURRICANE SIGNATURE SIMON 938MB C AMERICA; MAJOR HURRICANE SIGNATURE KOGUMA 942MB W PACIFIC; 1 MAJOR FIRE PORTEL; HOT NIGHT 28C MUMBAI, 26C LAGOS, 25C ABIDJAN; TROPICAL NIGHT 23C SANTO DOMING, 21C BENGALURU, 21C CASABLANCA +2 MORE. 100 ZX81S ON WATCH.",
+  "at": "2026-10-10T21:05:02.453Z",
+  "timeStr": "10 OCT 21:05Z (DATA 3 HOURS OLD)",
+  "graphemes": 591,
+  "limit": 300,
+  "pages": 3,
+  "posted": false,
+  "wouldPost": false,
+  "armed": true,
+  "status": "HOLD",
+  "reason": "held (off global 12h slot; UTC hour 21)",
+  "gateUnbacked": {
+    "ok": true,
+    "reason": "",
+    "detail": "pass (10 claims backed)"
+  },
+  "gateGuard": {
+    "ok": true,
+    "action": "post",
+    "reason": "",
+    "detail": "10 claim(s) backed",
+    "hadFault": false,
+    "dropped": []
+  },
+  "emptyStreak": 0,
+  "gateEmpty": {
+    "ok": true,
+    "reason": "",
+    "detail": "591 chars"
+  },
+  "gateSoak": {
+    "ok": true,
+    "reason": "",
+    "detail": "not an armed post attempt",
+    "evaluatedArmed": false
+  },
+  "image": {
+    "alt": "A 10x10 wall of 100 ZX81 screens rendering a live world weather map in 1-bit block graphics. Alerts: tornado warning SOUTH CAROLINA; flash flood warning GEORGIA, SOUTH CAROLINA; high wind warning RUSSIA, GERMANY; heavy rain warning GERMANY, ITALY, SAUDI ARABIA, GREECE, BELARUS, MONTENEGRO; severe thunderstorm warning NIGERIA, ITALY, ECUADOR, GREECE, CROATIA; SIMON 938MB C AMERICA, KOGUMA 942MB W PACIFIC; sweltering night N INDIA 28C, W AFRICA 26C, TROP ATL 25C; 1 major fire: PORTEL; hot night N ATLANTIC 23C, E ATLANTIC 21C, S INDIA 21C, E PACIFIC 20C, N AFRICA 20C; drought emergency EUROPE, W AFRICA (GDACS). Hottest 34C at BRASILIA, coldest 7C at REYKJAVIK. Precipitation: rain areas and snow or wintry areas. Roughest seas at S PACIFIC. Notable: smoky, unhealthy air over E ASIA. 6 further wildfires burning.",
+    "blobBytes": 73828,
+    "width": 2560,
+    "height": 1920
+  },
+  "cyclonesMajor": 2,
+  "newMajor": 0,
+  "frames": 10,
+  "retransmits": 0
+}
