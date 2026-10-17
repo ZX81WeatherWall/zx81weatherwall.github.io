@@ -1,0 +1,48 @@
+{
+  "text": "ZX81 WEATHER WALL 17 OCT 15:10Z. ALERT: FLASH FLOOD WARNING IN GUAM; EXTREME HEAT WARNING IN AUSTRALIA; WINTER STORM WARNING IN RUSSIA; HIGH WIND WARNING IN RUSSIA, GERMANY, ICELAND; HEAVY RAIN WARNING IN GERMANY, ITALY, SPAIN, SAUDI ARABIA; SEVERE THUNDERSTORM WARNING IN ITALY, ECUADOR; MAJOR HURRICANE SIGNATURE CHAMPI 945MB W PACIFIC; HURRICANE SIGNATURE TRUDY 979MB C AMERICA; HURRICANE SIGNATURE WATI 986MB C PACIFIC; 2 MAJOR FIRES PORTEL, PROZORRAMA; HOT NIGHT 28C MANILA, 28C TARAWA, 27C MUMBAI, 27C LAGOS, 25C ABIDJAN; TROPICAL NIGHT 24C SANTO DOMING +2 MORE. 100 ZX81S ON WATCH.",
+  "at": "2026-10-17T15:10:29.800Z",
+  "timeStr": "17 OCT 15:10Z",
+  "graphemes": 588,
+  "limit": 300,
+  "pages": 3,
+  "posted": false,
+  "wouldPost": false,
+  "armed": true,
+  "status": "HOLD",
+  "reason": "held (off global 12h slot; UTC hour 15)",
+  "gateUnbacked": {
+    "ok": true,
+    "reason": "",
+    "detail": "pass (11 claims backed)"
+  },
+  "gateGuard": {
+    "ok": true,
+    "action": "post",
+    "reason": "",
+    "detail": "11 claim(s) backed",
+    "hadFault": false,
+    "dropped": []
+  },
+  "emptyStreak": 0,
+  "gateEmpty": {
+    "ok": true,
+    "reason": "",
+    "detail": "588 chars"
+  },
+  "gateSoak": {
+    "ok": true,
+    "reason": "",
+    "detail": "not an armed post attempt",
+    "evaluatedArmed": false
+  },
+  "image": {
+    "alt": "A 10x10 wall of 100 ZX81 screens rendering a live world weather map in 1-bit block graphics. Alerts: flash flood warning GUAM; extreme heat warning AUSTRALIA; winter storm warning RUSSIA; high wind warning RUSSIA, GERMANY, ICELAND; heavy rain warning GERMANY, ITALY, SPAIN, SAUDI ARABIA; severe thunderstorm warning ITALY, ECUADOR; CHAMPI 945MB W PACIFIC, TRUDY 979MB C AMERICA, WATI 986MB C PACIFIC; sweltering night SE ASIA 28C, W PACIFIC 28C, N INDIA 27C, W AFRICA 27C, TROP ATL 25C; 2 major fires: PORTEL, PROZORRAMA; hot night N ATLANTIC 24C, E PACIFIC 22C, S INDIA 20C; drought emergency EUROPE, W AFRICA (GDACS). Hottest 30C at SANTO DOMING, coldest 3C at URUMQI. Peak gust 61 km/h at S OCEAN. Precipitation: rain areas and snow or wintry areas. Roughest seas at GREENLAND. Notable: smoky, unhealthy air over N INDIA, ARABIA. 6 further wildfires burning.",
+    "blobBytes": 74056,
+    "width": 2560,
+    "height": 1920
+  },
+  "cyclonesMajor": 1,
+  "newMajor": 0,
+  "frames": 10,
+  "retransmits": 0
+}
