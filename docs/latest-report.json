@@ -1,0 +1,48 @@
+{
+  "text": "ZX81 WEATHER WALL 24 OCT 12:15Z. ALERT: COASTAL FLOOD WARNING IN ISRAEL; HIGH WIND WARNING IN UNITED KINGDOM, NETHERLANDS, IRELAND, SOLOMON ISLANDS; HEAVY RAIN WARNING IN FRANCE, BELGIUM, IRELAND; SEVERE THUNDERSTORM WARNING IN ITALY, ECUADOR, PARAGUAY; MAJOR HURRICANE SIGNATURE VANCE 965MB C AMERICA; HURRICANE SIGNATURE CHAMPI 977MB S CHINA; HURRICANE SIGNATURE AGUEDA 1009MB E AFRICA; 2 MAJOR FIRES PORTEL, NEREIA; HOT NIGHT 27C MUMBAI, 27C MANILA, 27C LAGOS, 26C ABIDJAN; TROPICAL NIGHT 24C SANTO DOMING, 20C CAIRO, 20C BENGALURU, 20C CARACAS; HAZARDOUS SMOKE BEIJING. 100 ZX81S ON WATCH.",
+  "at": "2026-10-24T12:15:31.335Z",
+  "timeStr": "24 OCT 12:15Z",
+  "graphemes": 593,
+  "limit": 300,
+  "pages": 3,
+  "posted": true,
+  "wouldPost": true,
+  "armed": true,
+  "status": "POST",
+  "reason": "routine 6h +2 thread pages +6/6 desk replies",
+  "gateUnbacked": {
+    "ok": true,
+    "reason": "",
+    "detail": "pass (10 claims backed)"
+  },
+  "gateGuard": {
+    "ok": true,
+    "action": "post",
+    "reason": "",
+    "detail": "10 claim(s) backed",
+    "hadFault": false,
+    "dropped": []
+  },
+  "emptyStreak": 0,
+  "gateEmpty": {
+    "ok": true,
+    "reason": "",
+    "detail": "593 chars"
+  },
+  "gateSoak": {
+    "ok": true,
+    "reason": "",
+    "detail": "latest PASS 185m old",
+    "evaluatedArmed": true
+  },
+  "image": {
+    "alt": "A 10x10 wall of 100 ZX81 screens rendering a live world weather map in 1-bit block graphics. Alerts: coastal flood warning ISRAEL; high wind warning UNITED KINGDOM, NETHERLANDS, IRELAND, SOLOMON ISLANDS; heavy rain warning FRANCE, BELGIUM, IRELAND; severe thunderstorm warning ITALY, ECUADOR, PARAGUAY; VANCE 965MB C AMERICA, CHAMPI 977MB S CHINA, AGUEDA 1009MB E AFRICA; sweltering night N INDIA 27C, W AFRICA 27C, SE ASIA 27C, TROP ATL 26C; 2 major fires: PORTEL, NEREIA; hot night N ATLANTIC 24C, N AFRICA 20C, CARIBBEAN 20C, S INDIA 20C; hazardous smoke E ASIA; drought emergency EUROPE, W AFRICA, C AFRICA (GDACS). Hottest 33C at KINSHASA, coldest 0C at URUMQI. Peak gust 61 km/h at ARCTIC. Precipitation: rain areas and snow or wintry areas. Roughest seas at NE USA. Notable: smoky, unhealthy air over N INDIA. Notable: dense fog in W RUSSIA. 6 further wildfires burning.",
+    "blobBytes": 75717,
+    "width": 2560,
+    "height": 1920
+  },
+  "cyclonesMajor": 1,
+  "newMajor": 0,
+  "frames": 10,
+  "retransmits": 0
+}
