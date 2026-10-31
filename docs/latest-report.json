@@ -1,0 +1,48 @@
+{
+  "text": "ZX81 WEATHER WALL 31 OCT 18:09Z. ALERT: COASTAL FLOOD WARNING IN RUSSIA; EXTREME HEAT WARNING IN AUSTRALIA; WINTER STORM WARNING IN RUSSIA; HIGH WIND WARNING IN RUSSIA, CROATIA; HEAVY RAIN WARNING IN ITALY, SPAIN, GREECE, PORTUGAL; SEVERE THUNDERSTORM WARNING IN ECUADOR, GREECE; MAJOR HURRICANE SIGNATURE INFA 953MB S CHINA; HOT NIGHT 28C LAGOS, 26C MANILA, 26C ABIDJAN, 25C MUMBAI, 25C TARAWA; TROPICAL NIGHT 22C SANTO DOMING, 21C BENGALURU, 20C CARACAS; HAZARDOUS SMOKE BEIJING; RIVER FLOODING TASMAN SEA; DROUGHT EMERGENCY EUROPE, W AFRICA -GDACS. SNOW IN ARCTIC +2 MORE. 100 ZX81S ON WATCH.",
+  "at": "2026-10-31T18:09:17.439Z",
+  "timeStr": "31 OCT 18:09Z",
+  "graphemes": 595,
+  "limit": 300,
+  "pages": 3,
+  "posted": false,
+  "wouldPost": false,
+  "armed": true,
+  "status": "HOLD",
+  "reason": "held (off global 12h slot; UTC hour 18)",
+  "gateUnbacked": {
+    "ok": true,
+    "reason": "",
+    "detail": "pass (14 claims backed)"
+  },
+  "gateGuard": {
+    "ok": true,
+    "action": "post",
+    "reason": "",
+    "detail": "14 claim(s) backed",
+    "hadFault": false,
+    "dropped": []
+  },
+  "emptyStreak": 0,
+  "gateEmpty": {
+    "ok": true,
+    "reason": "",
+    "detail": "595 chars"
+  },
+  "gateSoak": {
+    "ok": true,
+    "reason": "",
+    "detail": "not an armed post attempt",
+    "evaluatedArmed": false
+  },
+  "image": {
+    "alt": "A 10x10 wall of 100 ZX81 screens rendering a live world weather map in 1-bit block graphics. Alerts: coastal flood warning RUSSIA; extreme heat warning AUSTRALIA; winter storm warning RUSSIA; high wind warning RUSSIA, CROATIA; heavy rain warning ITALY, SPAIN, GREECE, PORTUGAL; severe thunderstorm warning ECUADOR, GREECE; river flooding melbourne; INFA 953MB S CHINA; sweltering night W AFRICA 28C, TROP ATL 26C, SE ASIA 26C, N INDIA 25C, W PACIFIC 25C; hot night N ATLANTIC 22C, S INDIA 21C, CARIBBEAN 20C; hazardous smoke E ASIA; drought emergency EUROPE, W AFRICA (GDACS). Hottest 30C at SANTO DOMING, coldest 1C at URUMQI. Precipitation: rain areas and snow or wintry areas. Roughest seas at N PACIFIC. Notable: smoky, unhealthy air over ARABIA, MONGOLIA. Notable: dense fog in C AFRICA. 6 further wildfires burning.",
+    "blobBytes": 75887,
+    "width": 2560,
+    "height": 1920
+  },
+  "cyclonesMajor": 1,
+  "newMajor": 0,
+  "frames": 10,
+  "retransmits": 0
+}
