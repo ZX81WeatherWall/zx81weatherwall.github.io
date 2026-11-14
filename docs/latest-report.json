@@ -1,0 +1,48 @@
+{
+  "text": "ZX81 WEATHER WALL 14 NOV 18:07Z. ALERT: COASTAL FLOOD WARNING IN RUSSIA; EXTREME HEAT WARNING IN AUSTRALIA; WINTER STORM WARNING IN RUSSIA; HIGH WIND WARNING IN GERMANY, CROATIA; HEAVY RAIN WARNING IN FRANCE, SPAIN, SAUDI ARABIA; SEVERE THUNDERSTORM WARNING IN ITALY, ECUADOR, PARAGUAY; 1 MAJOR FIRE MACEIRA; HOT NIGHT 28C TARAWA, 26C MANILA, 26C LAGOS, 26C ABIDJAN, 26C SANTO DOMING; TROPICAL NIGHT 24C MUMBAI, 23C APIA, 20C CARACAS; HAZARDOUS SMOKE BEIJING; DROUGHT EMERGENCY EUROPE, W AFRICA -GDACS. HIGH 30C SANTO DOMING, LOW -2C REYKJAVIK. GALE 62KMH S OCEAN. 7 MORE FIRES. 100 ZX81S ON WATCH.",
+  "at": "2026-11-14T18:07:50.927Z",
+  "timeStr": "14 NOV 18:07Z",
+  "graphemes": 598,
+  "limit": 300,
+  "pages": 3,
+  "posted": false,
+  "wouldPost": false,
+  "armed": true,
+  "status": "HOLD",
+  "reason": "held (off global 12h slot; UTC hour 18)",
+  "gateUnbacked": {
+    "ok": true,
+    "reason": "",
+    "detail": "pass (16 claims backed)"
+  },
+  "gateGuard": {
+    "ok": true,
+    "action": "post",
+    "reason": "",
+    "detail": "16 claim(s) backed",
+    "hadFault": false,
+    "dropped": []
+  },
+  "emptyStreak": 0,
+  "gateEmpty": {
+    "ok": true,
+    "reason": "",
+    "detail": "598 chars"
+  },
+  "gateSoak": {
+    "ok": true,
+    "reason": "",
+    "detail": "not an armed post attempt",
+    "evaluatedArmed": false
+  },
+  "image": {
+    "alt": "A 10x10 wall of 100 ZX81 screens rendering a live world weather map in 1-bit block graphics. Alerts: coastal flood warning RUSSIA; extreme heat warning AUSTRALIA; winter storm warning RUSSIA; high wind warning GERMANY, CROATIA; heavy rain warning FRANCE, SPAIN, SAUDI ARABIA; severe thunderstorm warning ITALY, ECUADOR, PARAGUAY; 1 cyclone; sweltering night W PACIFIC 28C, N ATLANTIC 26C, TROP ATL 26C, W AFRICA 26C, SE ASIA 26C; 1 major fire: MACEIRA; hot night N INDIA 24C, C PACIFIC 23C, CARIBBEAN 20C; hazardous smoke E ASIA; drought emergency EUROPE, W AFRICA (GDACS). Hottest 30C at SANTO DOMING, coldest -2C at REYKJAVIK. Peak gust 62 km/h at S OCEAN. Precipitation: snow or wintry areas. Roughest seas at N PACIFIC. Notable: smoky, unhealthy air over N INDIA, ARABIA. 7 further wildfires burning.",
+    "blobBytes": 69243,
+    "width": 2560,
+    "height": 1920
+  },
+  "cyclonesMajor": 0,
+  "newMajor": 0,
+  "frames": 10,
+  "retransmits": 0
+}
