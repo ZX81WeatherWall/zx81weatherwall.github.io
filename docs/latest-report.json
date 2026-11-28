@@ -1,0 +1,48 @@
+{
+  "text": "ZX81 WEATHER WALL 28 NOV 18:07Z. ALERT: EXTREME HEAT WARNING IN AUSTRALIA; WINTER STORM WARNING IN GREECE, SERBIA, BULGARIA; EXTREME COLD WARNING IN BULGARIA; HIGH WIND WARNING IN RUSSIA, GREECE, BULGARIA, CROATIA, MONTENEGRO, ICELAND; HEAVY RAIN WARNING IN SAUDI ARABIA, GREECE, BULGARIA; SEVERE THUNDERSTORM WARNING IN ARGENTINA, GREECE; 1 MAJOR FIRE MACEIRA; HOT NIGHT 27C LAGOS, 26C MANILA, 26C ABIDJAN, 26C TARAWA; TROPICAL NIGHT 24C LIMA, 24C APIA, 23C SANTO DOMING, 22C MUMBAI; DROUGHT EMERGENCY EUROPE -GDACS. HIGH 31C SANTO DOMING, LOW -3C MOSCOW. GALE 62KMH ARCTIC. 100 ZX81S ON WATCH.",
+  "at": "2026-11-28T18:07:15.860Z",
+  "timeStr": "28 NOV 18:07Z",
+  "graphemes": 595,
+  "limit": 300,
+  "pages": 3,
+  "posted": false,
+  "wouldPost": false,
+  "armed": true,
+  "status": "HOLD",
+  "reason": "held (off global 12h slot; UTC hour 18)",
+  "gateUnbacked": {
+    "ok": true,
+    "reason": "",
+    "detail": "pass (14 claims backed)"
+  },
+  "gateGuard": {
+    "ok": true,
+    "action": "post",
+    "reason": "",
+    "detail": "14 claim(s) backed",
+    "hadFault": false,
+    "dropped": []
+  },
+  "emptyStreak": 0,
+  "gateEmpty": {
+    "ok": true,
+    "reason": "",
+    "detail": "595 chars"
+  },
+  "gateSoak": {
+    "ok": true,
+    "reason": "",
+    "detail": "not an armed post attempt",
+    "evaluatedArmed": false
+  },
+  "image": {
+    "alt": "A 10x10 wall of 100 ZX81 screens rendering a live world weather map in 1-bit block graphics. Alerts: extreme heat warning AUSTRALIA; winter storm warning GREECE, SERBIA, BULGARIA; extreme cold warning BULGARIA; high wind warning RUSSIA, GREECE, BULGARIA, CROATIA, MONTENEGRO, ICELAND; heavy rain warning SAUDI ARABIA, GREECE, BULGARIA; severe thunderstorm warning ARGENTINA, GREECE; sweltering night W AFRICA 27C, TROP ATL 26C, SE ASIA 26C, W PACIFIC 26C; 1 major fire: MACEIRA; hot night C PACIFIC 24C, PERU 24C, N ATLANTIC 23C, N INDIA 22C; drought emergency EUROPE (GDACS). Hottest 31C at SANTO DOMING, coldest -3C at MOSCOW. Peak gust 62 km/h at ARCTIC. Precipitation: rain areas and snow or wintry areas. Roughest seas at GREENLAND. Notable: smoky, unhealthy air over E ASIA, ARABIA, MONGOLIA. 8 further wildfires burning.",
+    "blobBytes": 71572,
+    "width": 2560,
+    "height": 1920
+  },
+  "cyclonesMajor": 0,
+  "newMajor": 0,
+  "frames": 10,
+  "retransmits": 0
+}
